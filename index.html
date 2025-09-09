@@ -7,30 +7,47 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Моя видеотека</h1>
+    <!-- Простая шапка -->
+    <header class="header">
+        <div class="logo">
+            <span>Anal Player</span>
+        </div>
     </header>
 
-    <main class="video-list">
-        <!-- Видео 1 -->
-        <div class="video-item">
-            <a href="player.html?video=https://github.com/Dibilus/Anal-Video-Player-Videos/blob/main/Anal%20Hunter%20Seria%201%20222.mp4&title=Мое первое видео">
-                <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/mqdefault.jpg" alt="Превью видео" width="320"> <!-- Заглушка для превью -->
-                <h3>Мое первое видео</h3>
-            </a>
+    <!-- Сетка видео -->
+    <main class="main-content">
+        <div class="video-grid">
+            <!-- Хантер Серия 1 -->
+            <div class="video-card">
+                <a href="player.html?video=https://cdn.jsdelivr.net/gh/Dibilus/Anal-Video-Player-Videos/releases/download/v1.0/Anal.Hunter.Seria.1.222.1.mp4&title=Anal Hunter Seria 1">												
+                    <div class="thumbnail-container">
+                        <img src="https://github.com/Dibilus/Anal-Video-Player-Videos/releases/download/v1.0/Pon.png" alt="Preview" class="thumbnail">
+                        <span class="duration">01:08</span>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">Anal Hunter Seria 1</h3>
+                        <p class="video-stats">0 просмотров</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Хантер Серия 2 -->
+            <div class="video-card">
+                <a href="player.html?video=https://cdn.jsdelivr.net/gh/Dibilus/Anal-Video-Player-Videos/releases/download/v1.0/Anal.Hunter.Seria.2.avi&title=Anal Hunter Seria 1">													
+                    <div class="thumbnail-container">
+                        <img src="https://github.com/Dibilus/Anal-Video-Player-Videos/releases/download/v1.0/Pon.png" alt="Preview" class="thumbnail">
+                        <span class="duration">01:08</span>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">Anal Hunter Seria 2</h3>
+                        <p class="video-stats">0 просмотров</p>
+                    </div>
+                </a>
+            </div>
+
+            
+
         </div>
-
-        <!-- Видео 2 -->
-        <div class="video-item">
-            <a href="player.html?video=https://github.com/username/repo/releases/download/v2.0/video2.mp4&title=Второе видео">
-                <img src="path/to/your/thumbnail2.jpg" alt="Превью второго видео" width="320">
-                <h3>Второе видео</h3>
-            </a>
-        </div>
-
-        <!-- Добавьте остальные видео по такому же принципу -->
-
     </main>
 </body>
-
 </html>
