@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anal Player</title>
-    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
     <header class="header">
         <div class="logo">
-            <span>VideoHub</span>
+            <span>Anal Player</span>
         </div>
     </header>
 
@@ -29,9 +29,9 @@
                 </a>
             </div>
 
-            <!-- Видео 2 (ИСПРАВЛЕННАЯ ССЫЛКА) -->
+            <!-- Видео 2 - альтернативные ссылки -->
             <div class="video-card">
-                <a href="player.html?video=https://cdn.jsdelivr.net/gh/Dibilus/Anal-Video-Player-Videos@latest/Anal%20Hunter%20Seria%206.mp4&title=Anal Hunter Seria 6">
+                <a href="player.html?video=https://github.com/Dibilus/Anal-Video-Player-Videos/releases/download/v1.0/Anal%20Hunter%20Seria%206.mp4&title=Anal Hunter Seria 6">
                     <div class="thumbnail-container">
                         <img src="https://github.com/Dibilus/Anal-Video-Player-Videos/releases/download/v1.0/Pon.png" alt="Preview" class="thumbnail">
                         <span class="duration">15:30</span>
@@ -42,7 +42,38 @@
                     </div>
                 </a>
             </div>
+
+            <!-- Видео 3 - тестовое с raw.githubusercontent -->
+            <div class="video-card">
+                <a href="player.html?video=https://raw.githubusercontent.com/Dibilus/Anal-Video-Player-Videos/main/Anal%20Hunter%20Seria%206.mp4&title=Anal Hunter Seria 6 (Raw)">
+                    <div class="thumbnail-container">
+                        <img src="https://github.com/Dibilus/Anal-Video-Player-Videos/releases/download/v1.0/Pon.png" alt="Preview" class="thumbnail">
+                        <span class="duration">15:30</span>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">Anal Hunter Seria 6 (Raw)</h3>
+                        <p class="video-stats">Тестовая версия</p>
+                    </div>
+                </a>
+            </div>
+
         </div>
     </main>
+
+    <script>
+        // Проверка ссылок перед переходом
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoLinks = document.querySelectorAll('.video-card a');
+            
+            videoLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const videoUrl = this.href.split('?video=')[1]?.split('&')[0];
+                    if (videoUrl) {
+                        console.log('Проверка ссылки:', decodeURIComponent(videoUrl));
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
