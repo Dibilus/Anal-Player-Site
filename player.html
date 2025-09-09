@@ -3,46 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Проигрыватель видео</title>
+    <title>Anal Player</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <a href="index.html">← Назад к списку</a>
-        <h1 id="video-title">Название видео</h1>
+    <!-- Простая шапка с кнопкой назад -->
+    <header class="header">
+        <a href="index.html" class="back-btn">← Назад</a>
+        <div class="logo">
+            <span>Anal Player</span>
+        </div>
     </header>
 
+    <!-- Плеер -->
     <main class="player-container">
-        <video id="my-video" controls width="100%">
-            Ваш браузер не поддерживает HTML5 видео.
-        </video>
+        <div class="video-wrapper">
+            <video id="mainPlayer" controls autoplay>
+                <source src="" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+        </div>
+        
+        <div class="video-info">
+            <h1 id="videoTitle">Название видео</h1>
+        </div>
     </main>
 
     <script>
-        // Парсим параметры из URL
+        // Получаем параметры из URL
         const urlParams = new URLSearchParams(window.location.search);
         const videoUrl = urlParams.get('video');
         const videoTitle = urlParams.get('title');
 
-        // Находим элементы на странице
-        const videoPlayer = document.getElementById('my-video');
-        const titleElement = document.getElementById('video-title');
-
-        // Подставляем полученные значения
+        // Устанавливаем видео и заголовок
         if (videoUrl) {
-            videoPlayer.src = videoUrl;
-            // Добавляем источник с типом для лучшей совместимости
-            const sourceElement = document.createElement('source');
-            sourceElement.src = videoUrl;
-            sourceElement.type = 'video/mp4'; // Укажите свой тип, например 'video/webm'
-            videoPlayer.innerHTML = ''; // Очищаем сообщение об ошибке
-            videoPlayer.appendChild(sourceElement);
+            document.getElementById('mainPlayer').src = videoUrl;
+        }
+        if (videoTitle) {
+            document.getElementById('videoTitle').textContent = decodeURIComponent(videoTitle);
+            document.title = decodeURIComponent(videoTitle) + ' - VideoHub';
         }
 
-        if (videoTitle) {
-            titleElement.textContent = videoTitle;
-            document.title = videoTitle; // Меняем title вкладки браузера
-        }
+        // Обработчики для плеера
+        const player = document.getElementById('mainPlayer');
+        
+        player.addEventListener('error', function(e) {
+            console.error('Ошибка загрузки видео:', e);
+        });
     </script>
 </body>
 </html>
