@@ -1,52 +1,187 @@
-body {
-    font-family: sans-serif;
+* {
     margin: 0;
-    padding: 20px;
-    background-color: #f4f4f4;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-header {
-    margin-bottom: 20px;
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: #0f0f0f;
+    color: #f1f1f1;
+    line-height: 1.4;
 }
 
-.video-list {
+/* Шапка */
+.header {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background-color: #0f0f0f;
+    border-bottom: 1px solid #272727;
+    gap: 16px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.back-btn {
+    color: #f1f1f1;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.back-btn:hover {
+    background-color: #272727;
+}
+
+/* Главная страница */
+.main-content {
+    padding: 24px;
+    background-color: #0f0f0f;
+    min-height: calc(100vh - 80px);
+}
+
+.video-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-.video-item {
-    background: #fff;
-    border-radius: 8px;
+/* Карточка видео */
+.video-card {
+    background-color: transparent;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     transition: transform 0.2s;
-}
-.video-item:hover {
-    transform: scale(1.02);
+    cursor: pointer;
 }
 
-.video-item a {
+.video-card:hover {
+    transform: translateY(-4px);
+}
+
+.video-card a {
     text-decoration: none;
     color: inherit;
 }
 
-.video-item img {
+.thumbnail-container {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.thumbnail {
     width: 100%;
-    height: auto;
-    display: block;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
 }
 
-.video-item h3 {
-    padding: 15px;
-    margin: 0;
+.duration {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #f1f1f1;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
 }
 
+.video-info {
+    padding: 8px;
+}
+
+.video-title {
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 4px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.3;
+}
+
+.video-stats {
+    color: #aaaaaa;
+    font-size: 14px;
+}
+
+/* Страница плеера */
 .player-container {
     max-width: 1000px;
     margin: 0 auto;
+    padding: 20px;
 }
-video {
-    background: #000;
-    border-radius: 4px;
+
+.video-wrapper {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #000;
+    margin-bottom: 20px;
+}
+
+#mainPlayer {
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    border-radius: 12px;
+}
+
+.video-info {
+    padding: 0;
+}
+
+.video-info h1 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .video-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .player-container {
+        padding: 16px;
+    }
+    
+    .header {
+        padding: 12px;
+    }
+    
+    .thumbnail {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        padding: 16px;
+    }
+    
+    .video-title {
+        font-size: 14px;
+    }
+    
+    .video-info h1 {
+        font-size: 20px;
+    }
 }
