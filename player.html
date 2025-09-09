@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VideoHub - Плеер</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Простая шапка с кнопкой назад -->
+    <header class="header">
+        <a href="index.html" class="back-btn">← Назад</a>
+        <div class="logo">
+            <span>VideoHub</span>
+        </div>
+    </header>
+
+    <!-- Плеер -->
+    <main class="player-container">
+        <div class="video-wrapper">
+            <video id="mainPlayer" controls autoplay>
+                <source src="" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+        </div>
+        
+        <div class="video-info">
+            <h1 id="videoTitle">Название видео</h1>
+        </div>
+    </main>
+
+    <script>
+        // Получаем параметры из URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const videoUrl = urlParams.get('video');
+        const videoTitle = urlParams.get('title');
+
+        // Устанавливаем видео и заголовок
+        if (videoUrl) {
+            document.getElementById('mainPlayer').src = videoUrl;
+        }
+        if (videoTitle) {
+            document.getElementById('videoTitle').textContent = decodeURIComponent(videoTitle);
+            document.title = decodeURIComponent(videoTitle) + ' - VideoHub';
+        }
+
+        // Обработчики для плеера
+        const player = document.getElementById('mainPlayer');
+        
+        player.addEventListener('error', function(e) {
+            console.error('Ошибка загрузки видео:', e);
+        });
+    </script>
+</body>
+</html>
